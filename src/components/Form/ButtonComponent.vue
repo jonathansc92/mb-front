@@ -1,12 +1,27 @@
 <template>
-    <button class="button primary">
-        Continuar
+    <button class="button" :class="[isPrimary ? 'primary' : 'secondary']" :type="type">
+        {{ label }}
     </button>
 </template>
 
-<scrip>
-
-</scrip>
+<script>
+export default {
+    props: {
+        type: {
+            type: String,
+            default: "submit"
+        },
+        label: {
+            type: String,
+            default: ''
+        },
+        isPrimary: {
+            type: Boolean,
+            default: false
+        }
+    },
+}
+</script>
 
 <style lang="scss">
 .button {

@@ -1,21 +1,36 @@
 <template>
     <div>
-        <small>
-            Etapa {{ stepHeaderStore().getStep }} de 4
+        <small class="stepDescription">
+            Etapa <span class="stepCurrentNumber">{{ stepStore().getCurrent + 1 }}</span> de 4
         </small>
         <h3 class="title">
-             {{ stepHeaderStore().getTitle }}
+            {{ props.title }}
         </h3>
     </div>
 </template>
 
 <script setup>
-import { stepHeaderStore } from "@/stores/StepHeader";
+import { stepStore } from "@/stores/Step";
+
+const props = defineProps({
+    title: {
+        type: String,
+        required: true,
+    }
+});
 </script>
 
 <style lang="scss">
-    .title {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
+.title {
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.stepDescription {
+    font-weight: 600;
+}
+
+.stepCurrentNumber {
+    color: orange;
+}
 </style>
