@@ -6,12 +6,12 @@
     <div v-show="stepStore().getCurrent === 1">
       <StepTwoView />
     </div>
-    <div v-show="stepStore().getCurrent === 3">
+    <div v-show="stepStore().getCurrent === 2">
       <StepThreeView />
     </div>
-    <!-- <div v-show="stepStore().getCurrent === 3">
-      <StepThreeView />
-    </div> -->
+    <div v-show="stepStore().getCurrent === 3">
+      <StepFourView />
+    </div>
   </div>
 </template>
 
@@ -19,9 +19,9 @@
 import { onMounted } from "vue";
 import { stepStore } from "@/stores/Step";
 import StepOneView from './StepOneView.vue';
-import StepThreeView from './StepThreeView.vue';
 import StepTwoView from './StepTwoView.vue';
-// import StepTwoView from './StepTwoView.vue';
+import StepThreeView from './StepThreeView.vue';
+import StepFourView from './StepFourView.vue';
 
 onMounted(() => {
   stepStore().setSteps(5);

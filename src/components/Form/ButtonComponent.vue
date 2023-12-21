@@ -25,7 +25,6 @@ export default {
 
 <style lang="scss">
 .button {
-    width: 100%;
     border-radius: 5px;
     border: 1px solid orange;
     padding: 7px;

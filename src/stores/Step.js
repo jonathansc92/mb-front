@@ -24,6 +24,8 @@ export const stepStore = defineStore('stepStore', {
         nextStep() {
             if (this.current < this.steps - 1) {
                 this.current++;
+            } else {
+                this.current +1;
             }
         },
         prevStep() {
