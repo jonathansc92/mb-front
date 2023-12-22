@@ -16,7 +16,6 @@ import FieldsStepOneView from './FieldsStepOneView.vue';
 
 function onSubmit(values) {
     stepDataStore().setEmail(values.email);
-    console.log(stepDataStore().getEmail)
     stepStore().nextStep();
 }
 </script>

@@ -1,8 +1,7 @@
 <template>
     <StepHeaderComponent title="Senha de acesso" />
-    <Form :validation-schema="schema" @submit="onSubmit">
-        <Field class="input" name="password" type="password" />
-        <ErrorMessage class="errorMessage" name="password" />
+    <Form @submit="onSubmit">
+        <FieldsStepThreeView />
         <div style="text-align: center;">
             <ButtonComponent style="display: inline-block; width: 40%; margin-right: 10px" type="button" label="Voltar"
                 @click="stepStore().prevStep()" />
@@ -12,21 +11,15 @@
 </template>
   
 <script setup>
-import { Field, Form, ErrorMessage } from 'vee-validate';
-import * as yup from 'yup';
+import { Form } from 'vee-validate';
 import { stepStore } from "@/stores/Step";
 import { stepDataStore } from "@/stores/StepData";
 import ButtonComponent from "@/components/Form/ButtonComponent.vue";
 import StepHeaderComponent from "@/components/StepHeaderComponent.vue";
-import validation from "@/utils/validation";
-
-const schema = yup.object({
-    password: yup.string().required(validation.REQUIRED),
-});
+import FieldsStepThreeView from './FieldsStepThreeView.vue';
 
 function onSubmit(values) {
-
-    // stepDataStore().setPassword(values.password);
+    stepDataStore().setPassword(values.password);
     stepStore().nextStep();
 }
 </script>

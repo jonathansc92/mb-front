@@ -1,33 +1,28 @@
 <template>
     <StepHeaderComponent title="Revise suas informações" />
-
+    <Form @submit="onSubmit">
         <FieldsStepOneView />
-
+        <FieldsStepTwoView />
+        <FieldsStepThreeView />
         <div style="text-align: center;">
             <ButtonComponent style="display: inline-block; width: 40%; margin-right: 10px" type="button" label="Voltar"
                 @click="stepStore().prevStep()" />
             <ButtonComponent style="display: inline-block; width: 56%;" isPrimary label="Continuar" />
         </div>
-    <!-- </Form> -->
+    </Form>
 </template>
   
 <script setup>
-import { useField } from 'vee-validate';
-import * as yup from 'yup';
+import { Form } from 'vee-validate';
 import { stepStore } from "@/stores/Step";
-import { stepDataStore } from "@/stores/StepData";
+import { registrationStore } from "@/stores/Registration";
 import ButtonComponent from "@/components/Form/ButtonComponent.vue";
 import StepHeaderComponent from "@/components/StepHeaderComponent.vue";
-import validation from "@/utils/validation";
 import FieldsStepOneView from './FieldsStepOneView.vue';
-
-const { value, errorMessage } = useField('email', yup.string().email(validation.INVALID_EMAIL).required(validation.REQUIRED));
-
-value.value = stepDataStore().getEmail;
+import FieldsStepTwoView from './FieldsStepTwoView.vue';
+import FieldsStepThreeView from './FieldsStepThreeView.vue';
 
 function onSubmit(values) {
-
-    // stepDataStore().setPassword(values.password);
-    stepStore().nextStep();
+    registrationStore().registration(values);
 }
 </script>

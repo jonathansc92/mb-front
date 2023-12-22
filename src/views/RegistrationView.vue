@@ -27,19 +27,3 @@ onMounted(() => {
   stepStore().setSteps(5);
 });
 </script>
-
-<style>
-.stepper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.step-active {
-  font-weight: bold;
-}
-
-.stepper-controls button {
-  margin-right: 10px;
-}
-</style>
