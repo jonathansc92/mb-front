@@ -1,35 +1,49 @@
-# mb-front
+## Descrição
 
-This template should help get you started developing with Vue 3 in Vite.
+Front desenvolvido em VueJs.
 
-## Recommended IDE Setup
+## Decisão da arquitetura utilizada
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Neste projeto a ideia era separar as responsabilidades.
+Na pasta src temos algumas estruturas de pastas.
 
-## Customize configuration
+- **stores**: Utilizamos controle de estados, utilizando um conceito mais atual PINIA, ao invés do VUEX.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Lista de bibliotecas de terceiros utilizadas
 
-## Project Setup
+- pinia; 
+- vue-toastification;
+- vee-validate;
+- maska; 
+- yup;
+- vue-router;
 
-```sh
-npm install
+## Quais requisitos obrigatórios que não foram entregues
+
+Neste repositório foram entregues todos os requisitos.
+
+## Como executar o projeto
+- Na raiz do projeto renomeie o arquivo **.env.example** para **.env**;
+- Execute o comando: 
+```
+    docker-compose up -d
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
+## Executar Manualmente
+- Rodar na raiz do projeto o comando
+```
+    npm i
+```
+- Rodar o comando
+```
+    npm run serve
 ```
 
-### Compile and Minify for Production
+## Rotas
+- Registration [http://localhost:5173/](http://localhost:5173/)
 
-```sh
-npm run build
-```
+## Autor
+- Autor - Jonathan Cruz
+- [https://jonathansc92.github.io/jonathancruzdev/?language=ptBr](https://jonathansc92.github.io/jonathancruzdev/?language=ptBr)
 
-### Lint with [ESLint](https://eslint.org/)
 
-```sh
-npm run lint
-```

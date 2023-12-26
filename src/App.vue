@@ -1,10 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import RegistrationView from './views/RegistrationView.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RegistrationView />
-
   <RouterView />
 </template>
