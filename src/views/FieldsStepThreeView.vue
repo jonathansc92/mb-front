@@ -2,7 +2,7 @@
     <label class="label" for="password">
         Senha
     </label>
-    <Field class="input" v-model="password" name="password" type="password" />
+    <Field class="input" v-model="password" name="password" type="password" placeholder="Digite a senha" />
     <ErrorMessage class="errorMessage" name="password" />
 </template>
 

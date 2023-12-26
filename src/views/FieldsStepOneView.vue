@@ -2,7 +2,7 @@
     <label class="label" for="name">
         Endereço de e-mail
     </label>
-    <Field class="input" v-model="value" name="email" type="text" />
+    <Field class="input" v-model="value" name="email" type="text"  placeholder="Digite o e-mail" />
     <ErrorMessage class="errorMessage" name="email" />
     <template v-if="stepStore().getCurrent === 0">
         <input @change="changePerson(false)" type="radio" v-model="isPj" name="pj" :value="false" /> Pessoa

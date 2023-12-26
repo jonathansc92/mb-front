@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia';
 import { stepDataStore } from './StepData';
 import { stepStore } from "@/stores/Step";
+import { useToast } from "vue-toastification";
+import messages from '@/utils/messages';
+
+const toast = useToast()
 
 export const registrationStore = defineStore('registrationStore', {
     id: 'registrationStore',
@@ -9,27 +13,27 @@ export const registrationStore = defineStore('registrationStore', {
     actions: {
         async registration(data) {
             try {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/registration`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
 
-                console.log(data)
-                // const response = await fetch(import.meta.env.VITE_API_URL, {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify({ data: data })
-                // });
+                if (!response.ok) {
+                    toast.error(messages.ERROR);
+                }
 
-                // if (!response.ok) {
-                //     throw new Error('Network response was not ok.');
-                // }
-
-                // const responseData = await response.json();
-                // console.log('Server response:', responseData);
+                const responseData = await response.json();
 
                 stepDataStore().resetStepsData();
                 stepStore().setCurrent(0);
+
+                toast.success(responseData.message);
             } catch (error) {
                 console.error('Error submitting data:', error);
+                toast.error(messages.ERROR);
             }
         },
     },

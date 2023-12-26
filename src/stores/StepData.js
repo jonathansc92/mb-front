@@ -3,13 +3,13 @@ import { defineStore } from 'pinia';
 export const stepDataStore = defineStore('stepDataStore', {
     id: 'stepDataStore',
     state: () => ({
-        email: null,
+        email: '',
         isPj: false,
-        name: null,
-        document: null,
-        date: null,
-        phone: null,
-        password: null,
+        name: '',
+        document: '',
+        date: '',
+        phone: '',
+        password: '',
     }),
     getters: {
         getEmail() {

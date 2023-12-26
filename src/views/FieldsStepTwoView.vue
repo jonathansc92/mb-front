@@ -2,22 +2,24 @@
     <label class="label" for="name">
         {{ stepDataStore().getIsPj ? "Razão Social" : "Nome" }}
     </label>
-    <Field class="input" v-model="name" name="name" type="text" />
+    <Field class="input" v-model="name" name="name" type="text" placeholder="Digite o nome" />
     <ErrorMessage class="errorMessage" name="name" />
     <label class="label" for="document">
         {{ stepDataStore().getIsPj ? "CNPJ" : "CPF" }}
     </label>
-    <Field class="input" v-model="document" name="document" type="text" />
+    <Field v-maska :data-maska="stepDataStore().getIsPj ? '##.###.###/####-##' : '###.###.###-##'" class="input"
+        v-model="document" name="document" type="text" placeholder="Digite o número do documento" />
     <ErrorMessage class="errorMessage" name="document" />
     <label class="label" for="date">
         {{ stepDataStore().getIsPj ? "Data de abertura" : "Data de nascimento" }}
     </label>
-    <Field class="input" v-model="date" name="date" type="text" />
+    <Field class="input" v-model="date" name="date" type="date" />
     <ErrorMessage class="errorMessage" name="date" />
     <label class="label" for="phone">
         Telefone
     </label>
-    <Field class="input" v-model="phone" name="phone" type="text" />
+    <Field v-maska data-maska="(##) #########" class="input" v-model="phone" name="phone" type="text"
+        placeholder="Digite o número de telefone" />
     <ErrorMessage class="errorMessage" name="phone" />
 </template>
 
@@ -27,6 +29,7 @@ import { Field, useField, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { stepDataStore } from "@/stores/StepData";
 import validation from "@/utils/validation";
+import { vMaska } from "maska"
 
 const { value: name } = useField('name', yup.string().required(validation.REQUIRED));
 const { value: document } = useField('document', yup.string().required(validation.REQUIRED));
